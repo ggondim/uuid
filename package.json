@@ -1,0 +1,53 @@
+{
+  "name": "template-javascript",
+  "version": "2.1.0",
+  "description": "A general JavaScript project template using some opinionated conventions.",
+  "readme": "README.md",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/",
+    "docs/"
+  ],
+  "scripts": {
+    "prepare": "husky install",
+    "release-rc": "npm run release -- --prerelease rc",
+    "release": "npx standard-version",
+    "hook:commit-msg": "npx --no -- commitlint --edit $1",
+    "hook:pre-commit": "npm run lint; npm run ts:lint",
+    "lint": "eslint ./src/*.{ts,js} --format stylish",
+    "ts:lint": "tsc --noEmit",
+    "ts:build": "rimraf dist; mkdir dist; tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ggondim-templates-javascript/template-javascript.git"
+  },
+  "author": {
+    "email": "gustavospgondim@gmail.com",
+    "name": "Gustavo Gondim",
+    "url": "https://github.com/ggondim"
+  },
+  "license": "LicenseRef-LICENSE",
+  "licenseRef": "docs/LICENSE",
+  "bugs": {
+    "url": "https://github.com/ggondim-templates-javascript/template-javascript/issues"
+  },
+  "homepage": "https://github.com/ggondim-templates-javascript/template-javascript#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^16.2.1",
+    "@commitlint/config-conventional": "^16.2.1",
+    "@types/node": "^17.0.21",
+    "@typescript-eslint/eslint-plugin": "^5.14.0",
+    "@typescript-eslint/parser": "^5.14.0",
+    "eslint": "^8.10.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^16.1.1",
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-import": "^2.25.4",
+    "husky": "^7.0.4",
+    "rimraf": "^3.0.2",
+    "standard-version": "^9.3.2",
+    "typescript": "^4.6.2"
+  }
+}
