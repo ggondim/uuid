@@ -1,27 +1,42 @@
 {
-  "name": "template-javascript",
-  "version": "2.1.0",
-  "description": "A general JavaScript project template using some opinionated conventions.",
+  "name": "@uuid-ts/uuid",
+  "version": "1.0.0",
+  "description": "An UUID class using the most used UUID implementations (v1, v4, v7) and TypeScript.",
+  "keywords": [
+    "uuid",
+    "uuidv1",
+    "uuidv4",
+    "uuidv7",
+    "typescript",
+    "uuid-typescript",
+    "uuid class"
+  ],
   "readme": "README.md",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist/",
-    "docs/"
+    "docs/",
+    "README.md"
   ],
   "scripts": {
+    "build": "npm run create-index; npm run ts:build",
+    "build:production": "npm run create-index; npm run ts:build:production",
+    "create-index": "npx ctix@0.6.0 single -p ./tsconfig.json -v -m -r -x --useUpperFirst",
     "prepare": "husky install",
+    "prepublish": "npm run build",
     "release-rc": "npm run release -- --prerelease rc",
     "release": "npx standard-version",
     "hook:commit-msg": "npx --no -- commitlint --edit $1",
     "hook:pre-commit": "npm run lint; npm run ts:lint",
     "lint": "eslint ./src/*.{ts,js} --format stylish",
     "ts:lint": "tsc --noEmit",
-    "ts:build": "rimraf dist; mkdir dist; tsc"
+    "ts:build": "rimraf dist; mkdir dist; tsc",
+    "ts:build:production": "rimraf dist; mkdir dist; tsc -p ./tsconfig.production.json"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ggondim-templates-javascript/template-javascript.git"
+    "url": "git+https://github.com/ggondim/uuid.git"
   },
   "author": {
     "email": "gustavospgondim@gmail.com",
@@ -31,23 +46,28 @@
   "license": "LicenseRef-LICENSE",
   "licenseRef": "docs/LICENSE",
   "bugs": {
-    "url": "https://github.com/ggondim-templates-javascript/template-javascript/issues"
+    "url": "https://github.com/ggondim/uuid/issues"
   },
-  "homepage": "https://github.com/ggondim-templates-javascript/template-javascript#readme",
+  "homepage": "https://github.com/ggondim/uuid#readme",
   "devDependencies": {
-    "@commitlint/cli": "^16.2.1",
-    "@commitlint/config-conventional": "^16.2.1",
-    "@types/node": "^17.0.21",
-    "@typescript-eslint/eslint-plugin": "^5.14.0",
-    "@typescript-eslint/parser": "^5.14.0",
-    "eslint": "^8.10.0",
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
+    "@types/node": "^22.9.0",
+    "@typescript-eslint/eslint-plugin": "^8.14.0",
+    "@typescript-eslint/parser": "^8.14.0",
+    "ctix": "^0.6.0",
+    "eslint": "^9.14.0",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-airbnb-typescript": "^16.1.1",
+    "eslint-config-airbnb-typescript": "^18.0.0",
     "eslint-plugin-eslint-comments": "^3.2.0",
-    "eslint-plugin-import": "^2.25.4",
-    "husky": "^7.0.4",
-    "rimraf": "^3.0.2",
-    "standard-version": "^9.3.2",
-    "typescript": "^4.6.2"
+    "eslint-plugin-import": "^2.31.0",
+    "husky": "^9.1.6",
+    "rimraf": "^6.0.1",
+    "standard-version": "^9.5.0",
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "uuid": "^11.0.3",
+    "uuidv7": "^1.0.2"
   }
 }

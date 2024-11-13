@@ -13,6 +13,7 @@ module.exports = {
     es2017: true,
     es2020: true,
     es2021: true,
+    es2023: true,
     node: true,
   },
   plugins: [
