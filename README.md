@@ -4,7 +4,7 @@
   <br>
 </h1>
 
-<p align="center">Short description of project.</p>
+<p align="center">A well-implemented UUID TypeScript class, with all the necessary features and extensibility.</p>
 
 <p align="center">
   <img src="https://img.shields.io/npm/v/@uuid-ts/uuid" />
