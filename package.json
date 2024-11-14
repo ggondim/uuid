@@ -1,6 +1,6 @@
 {
   "name": "@uuid-ts/uuid",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An UUID class using the most used UUID implementations (v1, v4, v7) and TypeScript.",
   "keywords": [
     "uuid",
